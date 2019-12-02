@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->name('logOut');
