@@ -616,7 +616,7 @@ class CourseController extends Controller
     
     public function postLectureSave(Request $request)
     {   
-        $data['section_id'] = $request->input('sectionid');
+        $data['id'] = $request->input('sectionid');
         $data['title'] = $request->input('lecture');
         $data['sort_order'] = $request->input('position');
         $data['type'] = '0';
@@ -647,7 +647,7 @@ class CourseController extends Controller
             $lecturequiz = $request->input('lecturequizdata');
             if(!empty($lecturequiz)){
                 foreach($lecturequiz as $lq){
-                    $data['section_id'] = $lq['sectionid'];
+                    $data['id'] = $lq['sectionid'];
                     $data['sort_order'] = $lq['position'];
                     $newID = $this->model->insertLectureQuizRow($data , $lq['id']);
                 }
